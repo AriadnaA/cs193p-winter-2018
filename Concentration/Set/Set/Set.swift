@@ -12,19 +12,16 @@ struct Set {
     
     var allCardsCount = 81
     
-//    var allCards = [Card]()
+    private(set) var cardsSet = [Card]()
+    private(set) var notUsedCards = [Card]()
     
-    var cardsSet = [Card]()
-    var cardsChosen = [Card]()
-    var notUsedCards = [Card]()
+    private(set) var scoreCount = 0
     
-    var scoreCount = 0
+    private var firstIndex: Int?
+    private var secondIndex: Int?
     
-    var firstIndex: Int?
-    var secondIndex: Int?
-    
-    func getStyleInfo(_ card: Card) -> (number: Int, shape: String, color: Int, style: Int) {
-        let number = card.style.string.countz
+    private func getStyleInfo(_ card: Card) -> (number: Int, shape: String, color: Int, style: Int) {
+        let number = card.style.string.count
         let shape = String(card.style.string[card.style.string.startIndex])
         let color = card.colorType
         let style = card.styleType
@@ -77,9 +74,6 @@ struct Set {
                                 cardsSet[first].hidden = true
                                 cardsSet[second].hidden = true
                             }
-                            cardsChosen.append(cardsSet[index])
-                            cardsChosen.append(cardsSet[first])
-                            cardsChosen.append(cardsSet[second])
                             firstIndex = nil
                             secondIndex = nil
                         } else {
@@ -106,7 +100,7 @@ struct Set {
     
     init(cardsCount: Int, stylesSet: [(style: NSAttributedString, colorIndex: Int, styleIndex: Int)]) {
         for index in 0 ..< allCardsCount {
-            let card = Card(identifier: index, style: stylesSet[index].style, color: stylesSet[index].colorIndex, styleIndex: stylesSet[index].styleIndex)
+            let card = Card(style: stylesSet[index].style, color: stylesSet[index].colorIndex, styleIndex: stylesSet[index].styleIndex)
             if index < cardsCount {
                 cardsSet.append(card)
             } else {

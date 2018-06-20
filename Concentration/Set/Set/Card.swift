@@ -9,8 +9,7 @@
 import Foundation
 
 struct Card {
-    
-    var identifier: Int
+
     var matched = false
     var removed = false
     var chosen = false
@@ -19,8 +18,7 @@ struct Card {
     var styleType: Int
     var style: NSAttributedString
     
-    init(identifier: Int, style: NSAttributedString, color: Int, styleIndex: Int) {
-        self.identifier = identifier
+    init(style: NSAttributedString, color: Int, styleIndex: Int) {
         self.style = style
         colorType = color
         styleType = styleIndex
