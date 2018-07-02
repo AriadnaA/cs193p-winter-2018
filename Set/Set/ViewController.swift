@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     
     private var scoreCount = 0 {
         didSet {
-            scoreLabel.text = "\(scoreCount)"
+            scoreLabel.text = "Score: \(scoreCount)"
         }
     }
     
