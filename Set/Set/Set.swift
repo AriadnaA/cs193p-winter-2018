@@ -20,10 +20,10 @@ struct Set {
     private var firstIndex: Int?
     private var secondIndex: Int?
     
-    private func getStyleInfo(_ card: Card) -> (number: Int, shape: String, color: Int, style: Int) {
+    private func getStyleInfo(_ card: Card) -> (number: Int, shape: String, color: Card.Color, style: Card.StyleType) {
         let number = card.style.string.count
-        let shape = String(card.style.string[card.style.string.startIndex])
-        let color = card.colorType
+        let shape = card.shape.rawValue//String(card.style.string[card.style.string.startIndex])
+        let color = card.colorType//card.colorType
         let style = card.styleType
         return (number, shape, color, style)
     }
@@ -98,9 +98,9 @@ struct Set {
         cardsSet += [notUsedCards.removeFirst(), notUsedCards.removeFirst(), notUsedCards.removeFirst()]
     }
     
-    init(cardsCount: Int, stylesSet: [(style: NSAttributedString, colorIndex: Int, styleIndex: Int)]) {
+    init(cardsCount: Int, stylesSet: [(style: NSAttributedString, color: Card.Color, styleType: Card.StyleType, shape: Card.Shape)]) {
         for index in 0 ..< allCardsCount {
-            let card = Card(style: stylesSet[index].style, color: stylesSet[index].colorIndex, styleIndex: stylesSet[index].styleIndex)
+            let card = Card(style: stylesSet[index].style, color: stylesSet[index].color, styleType: stylesSet[index].styleType, shape: stylesSet[index].shape)
             if index < cardsCount {
                 cardsSet.append(card)
             } else {

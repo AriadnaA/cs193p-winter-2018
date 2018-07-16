@@ -51,56 +51,58 @@ class ViewController: UIViewController {
         updateViewFromModel()
     }
     
-    private var styleShape = "▲●■"
-    private var styleColor = [#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)]
-    private var styleType = ["fill", "border", "strips"]
-    private var stylesSet = [(NSAttributedString, Int, Int)]()
+//    private var styleShape = "▲●■"
+//    private var styleColor = [#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)]
+//    private var styleType = ["fill", "border", "strips"]
+    private var stylesSet = [(NSAttributedString, Card.Color, Card.StyleType, Card.Shape)]()
     
     private func getStyles() {
-        var number: Int
-        var color: UIColor
         var shapeResult = ""
-        var style: String
-        var styles = [(NSAttributedString, Int, Int)]()
-        for i in 1...3 {
-            number = i
-            for j in styleShape {
+        var styles = [(NSAttributedString, Card.Color, Card.StyleType, Card.Shape)]()
+        for number in 1...3 {
+            for shape in Card.Shape.all {
                 shapeResult = ""
-                let shape = String(j)
                 for _ in 0 ..< number {
-                    shapeResult += shape
+                    shapeResult += shape.rawValue
                 }
-                for l in 0..<styleColor.count {
-                    color = styleColor[l]
-                    for k in 0..<styleType.count {
-                        style = styleType[k]
+                for color in Card.Color.all {
+                    var colorResult: UIColor
+                    switch color {
+                    case .green:
+                        colorResult = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+                    case .blue:
+                        colorResult = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+                    case .red:
+                        colorResult = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+                    }
+                    for style in Card.StyleType.all {
                         var attributes = [NSAttributedStringKey: Any]()
                         switch style {
-                        case "fill":
+                        case .fill:
                             attributes = [
-                                .strokeColor: color,
-                                .strokeWidth: -5.0,
-                                .foregroundColor: color,
+                                .strokeColor: colorResult,
+                                .strokeWidth: style.strokeWidth,
+                                .foregroundColor: colorResult,
                             ]
                             break
-                        case "border":
+                        case .border:
                             attributes = [
-                                .strokeColor: color,
-                                .strokeWidth: 5.0,
+                                .strokeColor: colorResult,
+                                .strokeWidth: style.strokeWidth,
                             ]
                             break
-                        case "strips":
+                        case .strips:
                             attributes = [
-                                .strokeColor: color,
-                                .strokeWidth: -5.0,
-                                .foregroundColor: color.withAlphaComponent(0.2),
+                                .strokeColor: colorResult,
+                                .strokeWidth: style.strokeWidth,
+                                .foregroundColor: colorResult.withAlphaComponent(0.2),
                             ]
                             break
                         default:
                             break
                         }
                         let attributedString = NSAttributedString(string: shapeResult, attributes: attributes)
-                        styles.append((attributedString, l, k))
+                        styles.append((attributedString, color, style, shape))
                     }
                 }
             }
