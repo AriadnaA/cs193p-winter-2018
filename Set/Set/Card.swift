@@ -10,54 +10,46 @@ import Foundation
 
 struct Card {
     
-    enum Shape: String {
-        case triangle = "▲"
-        case circle = "●"
-        case square = "■"
+    enum Shape {
+        case squiggles
+        case diamonds
+        case ovals
         
-        static var all = [Shape.triangle, .circle, .square]
+        static var all = [Shape.squiggles, .diamonds, .ovals]
     }
     
-    enum StyleType {
-        case fill
-        case border
-        case strips
+    enum Shading {
+        case solid
+        case striped
+        case unfilled
         
-        static var all = [StyleType.fill, .border, .strips]
-        
-        var strokeWidth: Double {
-            switch self {
-            case .fill, .strips:
-                return -5.0
-            case .border:
-                return 5.0
-            }
-        }
+        static var all = [Shading.solid, .striped, .unfilled]
+
     }
     
     enum Color {
         case green
-        case blue
+        case purple
         case red
         
-        static var all = [Color.green, .blue, .red]
+        static var all = [Color.green, .purple, .red]
     }
     
+    var number: Int
     var shape: Shape
-    var colorType: Color
-    var styleType: StyleType
-    var style: NSAttributedString
+    var color: Color
+    var shading: Shading
     
     var matched = false
     var removed = false
     var chosen = false
     var hidden = false
     
-    init(style: NSAttributedString, color: Color, styleType: StyleType, shape: Shape) {
-        self.style = style
-        self.styleType = styleType
+    init(number: Int, color: Color, shading: Shading, shape: Shape) {
+        self.number = number
+        self.shading = shading
         self.shape = shape
-        colorType = color
+        self.color = color
     }
 }
 

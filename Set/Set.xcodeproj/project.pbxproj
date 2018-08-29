@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25CB714211080C6002D7421 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CB713211080C6002D7421 /* Grid.swift */; };
 		B29234FA20C5579600476549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29234F920C5579600476549 /* AppDelegate.swift */; };
 		B29234FC20C5579600476549 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29234FB20C5579600476549 /* ViewController.swift */; };
 		B29234FF20C5579600476549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B29234FD20C5579600476549 /* Main.storyboard */; };
 		B292350120C5579700476549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B292350020C5579700476549 /* Assets.xcassets */; };
 		B292350420C5579700476549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B292350220C5579700476549 /* LaunchScreen.storyboard */; };
+		B2BB2C4D2136E26400F3BFF0 /* CardsDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB2C4C2136E26400F3BFF0 /* CardsDeckView.swift */; };
+		B2CC403D2132DDD900DB7126 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC403C2132DDD900DB7126 /* CardView.swift */; };
 		B2F5508320C6A01200E81E38 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F5508220C6A01200E81E38 /* Card.swift */; };
 		B2F5508520C6A11A00E81E38 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F5508420C6A11A00E81E38 /* Set.swift */; };
 		B2F5508720C6A7E700E81E38 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2F5508620C6A7E700E81E38 /* Default-568h@2x.png */; };
@@ -19,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B25CB713211080C6002D7421 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		B29234F620C5579600476549 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29234F920C5579600476549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B29234FB20C5579600476549 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		B292350020C5579700476549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B292350320C5579700476549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B292350520C5579700476549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/katearapova/Developer/github/cs193p-winter-2018/Set/Info.plist"; sourceTree = "<absolute>"; };
+		B2BB2C4C2136E26400F3BFF0 /* CardsDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDeckView.swift; sourceTree = "<group>"; };
+		B2CC403C2132DDD900DB7126 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B2F5508220C6A01200E81E38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B2F5508420C6A11A00E81E38 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		B2F5508620C6A7E700E81E38 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -64,8 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				B29234FB20C5579600476549 /* ViewController.swift */,
+				B2BB2C4C2136E26400F3BFF0 /* CardsDeckView.swift */,
+				B25CB713211080C6002D7421 /* Grid.swift */,
 				B29234FD20C5579600476549 /* Main.storyboard */,
 				B2F5508220C6A01200E81E38 /* Card.swift */,
+				B2CC403C2132DDD900DB7126 /* CardView.swift */,
 				B2F5508420C6A11A00E81E38 /* Set.swift */,
 			);
 			path = Set;
@@ -157,7 +166,10 @@
 			files = (
 				B2F5508520C6A11A00E81E38 /* Set.swift in Sources */,
 				B29234FC20C5579600476549 /* ViewController.swift in Sources */,
+				B2BB2C4D2136E26400F3BFF0 /* CardsDeckView.swift in Sources */,
 				B2F5508320C6A01200E81E38 /* Card.swift in Sources */,
+				B25CB714211080C6002D7421 /* Grid.swift in Sources */,
+				B2CC403D2132DDD900DB7126 /* CardView.swift in Sources */,
 				B29234FA20C5579600476549 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
